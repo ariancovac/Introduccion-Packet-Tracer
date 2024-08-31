@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 10in}]{geometry} 
+\usepackage{hyperref}
+
+\title{Introduccion a Packet Tracer}
+\author{Arian Covacevich \\ \texttt{ariancovacevich@gmail.com}}
+\date{August, 2024}
+
+\begin{document}
+%\setlength{\parskip}{0.75em}
+
+\maketitle
+
+\section{Packet Tracer}
+\hspace{1cm}
+Packet Tracer es una herramienta de simulación de redes que permite a los usuarios diseñar, configurar y probar redes de computadoras en un entorno virtual.
+
+\vspace{1em}\hspace{0.5cm}
+En la parte superior del programa se encuentra la tipica barra de acciones, comun en la gran mayoria de programas, que permite abrir, guardar o crear un archivo, copiar, pegar, "undo" y "redo" ademas de permitir hacer zoom al entorno de trabajo.
+Inmediatamente abajo se encuentra otra barra pero esta vez con herramientas que permiten interactuar con los elementos dentro del espacio de trabajo, como permitir seleccionar o eliminar un elemento así como tambien crear distinas formas y figuras. Al final de esta barra tambien se encuentra la herramienta para crear PDU de la cual se hablará más adelante.
+
+\vspace{1em}\hspace{0.5cm}
+En la parte inferior izquierda hay una lista con multiples dispostivos de redes y dispositivos finales para añadir al espacio de trabajo y realizar pruebas con los mismos. Tambien se encuentra los distintos tipos de cables necesarios para conectarlos.
+
+\vspace{1em}\hspace{0.5cm}
+Finalmente en la esquina inferior derecha se encuentra la lista de eventos donde se ven todos los eventos realizados o popr realizar en cierto escenario y los estados de los mismos. Tambien permite crear o borrar escenarios y editar los eventos.
+\subsection{Herramientas Básicas}
+\hspace{1cm}
+Entre las herramientas básicas que se utilizarán durante la práctica están:
+
+\subsubsection{Add Simple PDU}
+\hspace{1cm}
+Permite enviar mensajes simples entre dispositivos para probar la conectividad entre ambos.
+\subsubsection{Command Prompt}
+\hspace{1cm}
+Simula la consola de comandos de un sistema operativo, donde se pueden ejecutar comandos como ping, ipconfig, etc.
+\subsubsection{Device List}
+\hspace{1cm}
+Es una lista de dispositivos y cables que pueden ser arrastrados y soltados en el área de trabajo para construir la red.
+
+\subsection{Modos de Operacion}
+\hspace{1cm}Packet Tracer ofrece dos modos de operación:
+\subsubsection{Modo Realtime}
+\hspace{1cm}
+Permite observar el comportamiento de la red en tiempo real, simulando cómo funcionaría en un entorno físico.
+
+\subsubsection{Modo Simulacion}
+\hspace{1cm}
+Facilita el análisis paso a paso de los paquetes que se transmiten en la red, permitiendo observar detalladamente cómo viajan los datos entre dispositivos y cómo responden los dispositivos a diversas configuraciones y eventos.
+
+\section{Dispositivos Finales}
+\hspace{1cm}
+En la lista de dispositivos finales hay una gran variedad y algunos de ellos permiten modificaciones, mejoras, mediante módulos, pero los principales dispositivos que se van a usar durante el cursado son:
+
+\subsection{PCs}
+\hspace{1cm}
+Los PCs son los dispositivos más comunes en una red. Cada PC puede configurarse con direcciones IP, máscaras de subred y puertas de enlace, además de poder ejecutar comandos de red en su consola. Poseen una placa de red que puede ser reemplazada con distintos módulos, también se puede añadir una entrada y salida de audio. Además las PCs pueden simular la ejecución de ciertas aplicaciones como un navegador web, un cliente de correos electrónicos, entre otros.
+
+\subsection{Servidores}
+\hspace{1cm}
+Los servidores permiten hacer todo lo que las PCs y más, pueden configurarse para ofrecer servicios como DHCP y HTTP. Estos dispositivos son esenciales para simular un entorno de red completo donde los PCs actúan como clientes.
+
+\section{Dispositivos de Red}
+
+\subsection{Routers}
+\hspace{1cm}
+La mayoria de los routers son de uso profesional y pueden configurarse con diferentes módulos y tarjetas de expansión para aumentar su capacidad y funcionalidad, principalmente añadir puertos ethernet o serial ports, pero no son las únicas opciones disponibles, estos routers además de permitir expansiones vienen naturalmente con una mayor cantidad y variedad de puertos que los routers hogareños cuya variedad es simple y escasa.
+
+\subsection{Switches}
+\hspace{1cm}
+Los switches son dispositivos permiten la comunicación dentro de la misma red o subred. Los switches también pueden ampliarse con módulos adicionales, aunque esta vez son los de apariencia más simple los que pueden ampliarse mientras que los otros no.
+
+\subsection{Hubs}
+\hspace{1cm}
+Los hubs cumplen una funcion similar a los switches, pero de manera más limitada, hay poca variedad de dispositivos, son aparentemente simples y permiten modificaciones mediante módulos.
+
+\section{Cableado}
+\hspace{1cm}
+\subsection{Cables de Cobre Directo (Straight-Through)}
+\hspace{1cm}
+Estos cables se utilizan para conectar dispositivos de diferente tipo, como un PC a un switch. 
+
+\subsection{Cables de Cobre Cruzado (Cross-Over)}
+\hspace{1cm}
+Este tipo de cable se utiliza para conectar dispositivos del mismo tipo, como dos PCs entre sí.
+
+\subsection{Fibra Óptica}
+\hspace{1cm}
+Este tipo de cable se puede conectar en cualquier dispositivo con una entrada compatible (en el caso de la PC hay que cambiar el modulo base por otro).
+
+\subsection{USB y Consola}
+\hspace{1cm}
+Permite usar una PC como consola de un router o un switch
+
+\section{Actividad}
+\hspace{1cm}
+Al intentar interconectar 2 PCs mediante un cable cruzado e intentar establecer una conexión exitosa entre ambos se ve que esta conexión falla, esto ocurre ya que ninguna de las dos PCs tiene ninguna IP o Máscara de Red Asignada, para solucionar esto usé los siguientes comandos:
+
+\noindent
+\textit{ipconfig 192.168.0.1 255.255.255.0} para la PC1 y
+\textit{ipconfig 192.168.0.2 255.255.255.0} para la PC2
+
+\noindent
+Luego con el comando \textit{ping} verifiqué rapidamente la conexión entre ambas PCs.
+
+\vspace{1em}\hspace{0.5cm}
+Ahora con la conexión ya establecida con la herramienta Add Simple PDU envie un mensaje de una PC a la otra y observe como se enviaba, recibía y se enviaba una confirmación.
+
+\vspace{1em}\hspace{0.5cm}
+Al realizar las pruebas se puede observar un problema de escalabilidad, esta configuración es básica y no escalable para redes más grandes, donde se requerirán dispositivos de red más avanzados como switches o routers.
+
+\section{Referencias}
+\href{https://github.com/ariancovac/Introduccion-Packet-Tracer}{Link a Github del documento}
+\end{document}
